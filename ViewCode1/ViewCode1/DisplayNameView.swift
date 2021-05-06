@@ -13,7 +13,6 @@ class DisplayNameView: UIView {
 
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.text = "Nome"
         nameLabel.numberOfLines = 0
         nameLabel.backgroundColor = .blue
         nameLabel.textAlignment = .center
