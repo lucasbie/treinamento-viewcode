@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8088379E26441E3C000EA1B0 /* DisplayNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088379D26441E3C000EA1B0 /* DisplayNameView.swift */; };
+		808837A02644349F000EA1B0 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088379F2644349F000EA1B0 /* DisplayNameViewController.swift */; };
 		80D2A39126419B25006532C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D2A39026419B25006532C7 /* AppDelegate.swift */; };
 		80D2A39326419B25006532C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D2A39226419B25006532C7 /* SceneDelegate.swift */; };
 		80D2A39526419B25006532C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D2A39426419B25006532C7 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8088379D26441E3C000EA1B0 /* DisplayNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameView.swift; sourceTree = "<group>"; };
+		8088379F2644349F000EA1B0 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		80D2A38D26419B25006532C7 /* ViewCode1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewCode1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D2A39026419B25006532C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80D2A39226419B25006532C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				80D2A39B26419B26006532C7 /* LaunchScreen.storyboard */,
 				80D2A39E26419B26006532C7 /* Info.plist */,
 				80D2A3C026419D65006532C7 /* MyView.swift */,
+				8088379D26441E3C000EA1B0 /* DisplayNameView.swift */,
+				8088379F2644349F000EA1B0 /* DisplayNameViewController.swift */,
 			);
 			path = ViewCode1;
 			sourceTree = "<group>";
@@ -257,9 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8088379E26441E3C000EA1B0 /* DisplayNameView.swift in Sources */,
 				80D2A3C126419D65006532C7 /* MyView.swift in Sources */,
 				80D2A39526419B25006532C7 /* ViewController.swift in Sources */,
 				80D2A39126419B25006532C7 /* AppDelegate.swift in Sources */,
+				808837A02644349F000EA1B0 /* DisplayNameViewController.swift in Sources */,
 				80D2A39326419B25006532C7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

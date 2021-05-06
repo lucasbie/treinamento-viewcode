@@ -7,19 +7,38 @@
 
 import UIKit
 
+protocol displayDelegateProtocol {
+    func pushViewController(text: String?)
+    func alertViewController()
+}
+
 class ViewController: UIViewController {
+    
+    // MARK: Overrides
     
     override func loadView() {
         let myView = MyView()
-        
+        myView.displayDelegate = self
         view = myView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
 
+// MARK: Extensions
+
+extension ViewController : displayDelegateProtocol {
+    func alertViewController() {
+        let alert = UIAlertController(title: "Ops!", message: "É necessário preencher nome", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func pushViewController(text: String?) {
+        let controller = DisplayNameViewController()
+        controller.text = text
+        navigationController?.pushViewController(controller, animated: true)
+    }
+}

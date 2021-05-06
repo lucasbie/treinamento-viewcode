@@ -9,6 +9,10 @@ import UIKit
 
 class MyView: UIView {
     
+    // MARK: - Private properties
+    
+    var displayDelegate: displayDelegateProtocol?
+    
     // MARK: - Outlets
 
     private lazy var titleLabel: UILabel = {
@@ -37,6 +41,7 @@ class MyView: UIView {
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.gray.cgColor
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -56,6 +61,18 @@ class MyView: UIView {
     
     // MARK: Private methods
     
+    @objc
+    private func buttonAction(sender: UIButton?) {
+        guard let text = textField.text else { return }
+        
+        if text.isEmpty {
+            displayDelegate?.alertViewController()
+            return
+        }
+        displayDelegate?.pushViewController(text: text)
+        textField.text = ""
+    }
+    
     private func setupElements() {
         backgroundColor = .red
         addSubview(titleLabel)
@@ -74,12 +91,13 @@ class MyView: UIView {
             textField.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 48),
             textField.heightAnchor.constraint(equalToConstant: 35),
             textField.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 24),
-            textField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: -24)
+            textField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: -24),
+            textField.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -24)
         ])
         
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: centerYAnchor),
+            button.centerXAnchor.constraint(equalTo: textField.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: textField.centerYAnchor),
             button.widthAnchor.constraint(equalToConstant: 100),
             button.heightAnchor.constraint(equalToConstant: 48)
         ])
