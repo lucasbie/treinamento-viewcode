@@ -9,9 +9,9 @@ import UIKit
 
 class MyView: UIView {
     
-    // MARK: - Private properties
+    // MARK: - Public properties
     
-    var displayDelegate: displayDelegateProtocol?
+    weak var displayDelegate: displayDelegateProtocol?
     
     // MARK: - Outlets
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol displayDelegateProtocol {
+protocol displayDelegateProtocol: AnyObject {
     func pushViewController(text: String?)
     func alertViewController()
 }
