@@ -1,22 +1,21 @@
 //
-//  MyView.swift
+//  CustomCell.swift
 //  ViewCode1
 //
-//  Created by Lucas Alcalde Bie da Silva on 10/05/21.
+//  Created by Lucas Alcalde Bie da Silva on 04/05/21.
 //
 
 import UIKit
 
-class MyView: UIView {
-
+class CustomCell: UICollectionViewCell {
+    
     // MARK: Privates Outlets
     
     private lazy var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 50)
-        label.backgroundColor = .red
-        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.backgroundColor = .blue
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -27,7 +26,7 @@ class MyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .yellow
+        backgroundColor = .purple
         addSubview(label)
         setupConstraints()
     }
@@ -39,7 +38,7 @@ class MyView: UIView {
     // MARK: Publics methods
     
     func setupLabel(text: String) {
-        label.text = "Oi \(text)!"
+        label.text = text
     }
     
     // MARK: Privates methods
