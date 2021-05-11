@@ -9,9 +9,26 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: Private Constant
+    
+    private let idCell = "idCell"
+    
     // MARK: Private properties
     
-    private var myCollectionView: UICollectionView?
+    private lazy var myCollectionView: UICollectionView = {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 24, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 350, height: 200)
+        
+        let myCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        myCollectionView.register(CustomCell.self, forCellWithReuseIdentifier: idCell)
+        myCollectionView.backgroundColor = UIColor.red
+        myCollectionView.dataSource = self
+        myCollectionView.delegate = self
+        
+        return myCollectionView
+    }()
+
     private let text = ["Lucas", "Filiper", "Daniel", "Paulo Cesar", "Vinicius"]
     
     // MARK: Override
@@ -25,20 +42,7 @@ class ViewController: UIViewController {
     // MARK: Privates methods
     
     private func setupCollectionView() {
-        let view = UIView()
-        
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 24, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 350, height: 200)
-        
-        myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        myCollectionView?.register(CustomCell.self, forCellWithReuseIdentifier: "MyCell")
-        myCollectionView?.backgroundColor = UIColor.red
-        myCollectionView?.dataSource = self
-        myCollectionView?.delegate = self
-        
-        view.addSubview(myCollectionView ?? UICollectionView())
-        self.view = view
+        view.addSubview(myCollectionView)
     }
 }
 
@@ -46,11 +50,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return text.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath) as! CustomCell
+        let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: idCell, for: indexPath) as! CustomCell
         myCell.setupLabel(text: text[indexPath.row])
         
         return myCell
